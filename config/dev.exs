@@ -22,8 +22,16 @@ config :uppy, UppyWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "zP3XfqMkM7cqR+AHMmUQlmMr0MPGMJeamPqZg6+HFTruyFn+dn+kUYmXr8CRy3fO",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    npm: [
+      "run",
+      "watch.js",
+      cd: Path.expand("../assets", __DIR__)
+    ],
+    npm: [
+      "run",
+      "watch.css",
+      cd: Path.expand("../assets", __DIR__)
+    ]
   ]
 
 # ## SSL Support
