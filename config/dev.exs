@@ -59,6 +59,7 @@ config :uppy, UppyWeb.Endpoint,
 
 # Watch static and templates for browser reloading.
 config :uppy, UppyWeb.Endpoint,
+  server: true,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
