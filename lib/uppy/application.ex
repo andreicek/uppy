@@ -17,9 +17,8 @@ defmodule Uppy.Application do
       # Start Finch
       {Finch, name: Uppy.Finch},
       # Start the Endpoint (http/https)
-      UppyWeb.Endpoint
-      # Start a worker by calling: Uppy.Worker.start_link(arg)
-      # {Uppy.Worker, arg}
+      UppyWeb.Endpoint,
+      {Uppy.Scheduler, [15000, [Uppy.Job.UseCase, :run_all]]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
